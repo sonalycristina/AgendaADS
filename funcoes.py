@@ -18,6 +18,7 @@ def adicionar():
 	agenda.write(",")
 	agenda.write("\n")
 	agenda.close()
+	agenda.clone2()
 	
 def listar():
 	print("Lista de Contatos")
