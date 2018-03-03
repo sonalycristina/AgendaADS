@@ -20,6 +20,7 @@ def adicionar():
 	agenda.close()
 	
 	
+	
 def listar():
 	print("Lista de Contatos")
 	agenda = open("agendatelefonica.csv")
