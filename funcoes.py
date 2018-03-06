@@ -31,3 +31,22 @@ def listar():
 
 def falha():
 	print("Opcao Incorreta")
+
+def buscar_nome():
+	import csv #importa biblioteca csv
+	lista = [] #cria 1 lista
+	with open('agendatelefonica.csv') as csvfile: #abre arquivo csv
+		leitor = csv.reader(csvfile, delimiter=',') #le arquivo csv
+		for linha in leitor: #poem na variavel linha cada linha do arquivo
+        		lista.append(linha) #adiciona para lista
+	
+	x = 0
+	nome = input('Escreva o nome que procura na agenda:\n').lower()
+	while x < len(lista): #enquanto x for menor que numero de contatos faca
+		a = lista[x] # a recebe lista posicao x
+		if nome in a: # se nome estiver na variavel a
+			print('Nome: {} - Telefone: {}'.format(a[0],a[1])) #escreva 
+			break #termina loop
+		x+=1
+	if x == len(lista): #se mesmo apos procurar nome em a e nao encontrar apos loop while terminar entrara nesta condicao
+		print('Contato inexistente!! Favor cadastrar o contato')
