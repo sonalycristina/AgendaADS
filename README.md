@@ -28,10 +28,20 @@ Para promover  o trabalho em grupo foi utilizado o serviço de hospedagem GitHub
 
 Nome dos Alunos:
 Edio Gama Filho	RA:1701060
-Jefferson Kwak 	RA: 1701391
+
+
+Jefferson Kwak 		RA: 1701391
+
+
 Rafael Cunha 		RA: 1701266
-Marcos Vviana 	RA:1701253	
+
+
+Marcos Vviana 		RA:1701253	
+
+
 Marcio Felipe 		RA: 1701580				
+
+
 Tassio Lima 		RA:1701769
 														
 						
