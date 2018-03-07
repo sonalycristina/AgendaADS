@@ -4,6 +4,7 @@ def bemvindo():
 	print("Selecione uma Opcao")
 	print("1  Adicionar um novo contato")
 	print("2  Listar os contatos da agenda")
+	print("2  Excluir contatos da agenda")
 
 #Funcoes do processo
 def adicionar():
@@ -31,3 +32,25 @@ def listar():
 
 def falha():
 	print("Opcao Incorreta")
+
+def excluir():
+        print("\nExcluir de Contatos")
+        import csv
+        lista=[]
+        agenda = open("agendatelefonica.csv")
+        ler = csv.reader(agenda)
+        for lin in ler:
+                lista.append(lin)
+
+        cont = 0
+        nome=input("Digite um nome que deseja apagar: ")
+        while cont < len(lista):
+                lis = lista [cont]
+                if nome == lis[0]:
+                      print(lis)
+                cont+=1
+                
+        
+	
+        
+                
