@@ -47,7 +47,7 @@ def buscar_nome():
 		a = lista[x] # a recebe lista posicao x
 		if nome in a: # se nome estiver na variavel a
 			print('Nome: {} - Telefone: {}'.format(a[0],a[1])) #escreva 
-
 		x+=1
+    
 	if x == len(lista): #se mesmo apos procurar nome em a e nao encontrar apos loop while terminar entrara nesta condicao
 		print('Contato inexistente!! Favor cadastrar o contato')
