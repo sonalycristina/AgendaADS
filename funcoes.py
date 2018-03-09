@@ -1,5 +1,6 @@
 #Mensagem de Bem Vindo e Opcoes ao Usuario
 import csv
+import sys
 
 def bemvindo():
 	print("Bem Vindo a Agenda")
@@ -7,6 +8,7 @@ def bemvindo():
 	print("1  Adicionar um novo contato")
 	print("2  Listar os contatos da agenda")
 	print('4 Buscar contato pelo nome')
+	print('9 Para sair do programa')
 
 #Funcoes do processo
 def adicionar():
