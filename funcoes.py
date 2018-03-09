@@ -34,23 +34,30 @@ def falha():
 	print("Opcao Incorreta")
 
 def excluir():
-        print("\nExcluir de Contatos")
-        import csv
-        lista=[]
-        agenda = open("agendatelefonica.csv")
-        ler = csv.reader(agenda)
-        for lin in ler:
-                lista.append(lin)
+	import csv
+	lista = []
+	agenda = open('agendatelefonica.csv')
+	ler = csv.reader(agenda)
+	for lin in ler:
+		lista.append(lin)
 
-        cont = 0
-        nome=input("Digite um nome que deseja apagar: ")
-        while cont < len(lista):
-                lis = lista [cont]
-                if nome == lis[0]:
-                      print(lis)
-                cont+=1
-                
-        
-	
-        
-                
+	nome = input('Escreva o nome para excluir da agenda\n').lower()
+	x=0
+	while x<len(lista):
+		contato = lista[x]
+		if nome in contato:
+			print('Deseja excluir este contato?\n')
+			print('Nome {} - Telefone {}\n'.format(contato[0],contato[1]))
+			resp=int(input('[1]Sim   [2]Nao'))
+			if resp==1:
+				del(lista[x])
+				print('contato excluido')
+				break
+		x += 1
+		if x==len(lista):
+			print('contato nao encontrado')
+	with open('agendatelefonica.csv', "wt") as arquivo:
+		escritor = csv.writer(arquivo, delimiter=",")
+		for linha in lista:
+			escritor.writerow(linha)
+			
