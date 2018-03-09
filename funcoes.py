@@ -6,7 +6,9 @@ def bemvindo():
 	print("Selecione uma Opcao")
 	print("1  Adicionar um novo contato")
 	print("2  Listar os contatos da agenda")
+	print("3  Excluir contatos da agenda")
 	print('4 Buscar contato pelo nome')
+
 
 #Funcoes do processo
 def adicionar():
@@ -38,6 +40,36 @@ def listar():
 def falha():
 	print("Opcao Incorreta")
 
+
+def excluir():
+	import csv
+	lista = []
+	agenda = open('agendatelefonica.csv')
+	ler = csv.reader(agenda)
+	for lin in ler:
+		lista.append(lin)
+
+	nome = input('Escreva o nome para excluir da agenda\n').lower()
+	x=0
+	while x<len(lista):
+		contato = lista[x]
+		if nome in contato:
+			print('Deseja excluir este contato?\n')
+			print('Nome {} - Telefone {}\n'.format(contato[0],contato[1]))
+			resp=int(input('[1]Sim   [2]Nao'))
+			if resp==1:
+				del(lista[x])
+				print('contato excluido')
+				break
+		x += 1
+		if x==len(lista):
+			print('contato nao encontrado')
+	with open('agendatelefonica.csv', "wt") as arquivo:
+		escritor = csv.writer(arquivo, delimiter=",")
+		for linha in lista:
+			escritor.writerow(linha)
+			
+
 def buscar_nome():
 	import csv #importa biblioteca csv
 	lista = [] #cria 1 lista
@@ -56,3 +88,4 @@ def buscar_nome():
     
 	if x == len(lista): #se mesmo apos procurar nome em a e nao encontrar apos loop while terminar entrara nesta condicao
 		print('Contato inexistente!! Favor cadastrar o contato')
+    
