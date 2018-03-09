@@ -15,6 +15,8 @@ elif opcao == 2:
 	funcoes.listar()
 elif opcao == 3:
         funcoes.excluir()
+elif opcao == 4:
+	funcoes.buscar_nome()
 else:
 	funcoes.falha()
 
