@@ -7,7 +7,8 @@ def bemvindo():
 	print("1  Adicionar um novo contato")
 	print("2  Listar os contatos da agenda")
 	print("3  Excluir contatos da agenda")
-	print('4 Buscar contato pelo nome')
+	print('4  Buscar contato pelo nome')
+	print('9  Sair')
 
 
 #Funcoes do processo
@@ -44,14 +45,15 @@ def falha():
 def excluir():
 	import csv
 	lista = []
-	agenda = open('agendatelefonica.csv')
+	agenda = open('agendatelefonica.csv', 'r')
 	ler = csv.reader(agenda)
 	for lin in ler:
 		lista.append(lin)
 
 	nome = input('Escreva o nome para excluir da agenda\n').lower()
 	x=0
-	while x<len(lista):
+	resp=0
+	while x < len(lista):
 		contato = lista[x]
 		if nome in contato:
 			print('Deseja excluir este contato?\n')
@@ -62,30 +64,43 @@ def excluir():
 				print('contato excluido')
 				break
 		x += 1
-		if x==len(lista):
-			print('contato nao encontrado')
-	with open('agendatelefonica.csv', "wt") as arquivo:
-		escritor = csv.writer(arquivo, delimiter=",")
-		for linha in lista:
-			escritor.writerow(linha)
-			
+
+	if resp != 1:
+		print('Contato não encontrado')
+
+
+	agenda.close()
+
+	agenda = open('agendatelefonica.csv', 'w')
+	agenda.truncate()
+	agenda.close()
+
+	agenda = open('agendatelefonica.csv', 'a')
+	for linha in lista:
+		for dado in linha:
+			agenda.write(dado)
+			if dado == '':
+				agenda.write("\n")
+			else:
+				agenda.write(',')
+				
+
+
+
 
 def buscar_nome():
-	import csv #importa biblioteca csv
-	lista = [] #cria 1 lista
-	with open('agendatelefonica.csv') as csvfile: #abre arquivo csv
-		leitor = csv.reader(csvfile, delimiter=',') #le arquivo csv
-		for linha in leitor: #poem na variavel linha cada linha do arquivo
-        		lista.append(linha) #adiciona para lista
-	
-	x = 0
-	nome = input('Escreva o nome que procura na agenda:\n').lower()
-	while x < len(lista): #enquanto x for menor que numero de contatos faca
-		a = lista[x] # a recebe lista posicao x
-		if nome in a: # se nome estiver na variavel a
-			print('Nome: {} - Telefone: {}'.format(a[0],a[1])) #escreva 
-		x+=1
-    
-	if x == len(lista): #se mesmo apos procurar nome em a e nao encontrar apos loop while terminar entrara nesta condicao
-		print('Contato inexistente!! Favor cadastrar o contato')
-    
+        import csv
+        lista = []
+        with open('agendatelefonica.csv') as csvfile:
+                leitor = csv.reader(csvfile, delimiter=',')
+                for linha in leitor:
+                        lista.append(linha)
+        x=0
+        nome = input('Escreva o nome que procura na agenda:\n').lower()
+        while x<len(lista):
+                a = lista[x]
+                if nome in a:
+                        print('\nNome: {} - Telefone: {}'.format(a[0],a[1]))
+                x+=1
+        if x == len(lista):
+                print('\n\nTodos contatos com este nome foram listados!! Caso não listado cadastre o contato.')
