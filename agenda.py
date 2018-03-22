@@ -17,6 +17,8 @@ elif opcao == 3:
         funcoes.excluir()
 elif opcao == 4:
 	funcoes.buscar_nome()
+elif opcao == 9:
+        exit()
 else:
 	funcoes.falha()
 
