@@ -1,6 +1,8 @@
 Agenda V0.1
 ================================
 
+Travis: https://travis-ci.org/tassioplima/AgendaADS/
+
 ﻿
 FACULDADE DE TECNOLOGIA IMPACTA 
 CURSO DE ANALISE E DESENVOLVIMENTO DE SISTEMAS
