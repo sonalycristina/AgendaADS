@@ -71,6 +71,8 @@ Apos executar uma ação o programa só poderá ser encerrado caso o usuário se
 
 A Aplicação pode armazenar dezenas de contatos.
 
-
+===============================================================================================================================
+Criado o arquivo .gitignore.py e colocado dentro da raiz.
+Arquivo .gitignore.py adicionado dentro do projeto.
 
 
